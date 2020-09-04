@@ -10,6 +10,6 @@ function numberOfSteps(num: number): number {
     }
     numberOfSteps++;
   }
-  
+
   return numberOfSteps;
-};
+}
