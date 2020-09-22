@@ -1,5 +1,6 @@
 function groupThePeople(groupSizes) {
   let groupSizeIndexes = {};
+  let results = [];
 
   for (let i = 0; i < groupSizes.length; i++) {
     groupSizeIndexes[groupSizes[i]] = groupSizeIndexes[groupSizes[i]]
@@ -8,11 +9,13 @@ function groupThePeople(groupSizes) {
   }
 
   for (let key in groupSizeIndexes) {
-    console.log(Number(key));
-    console.log(groupSizes.indexOf(Number(key)));
+    const amountOfGroups = groupSizeIndexes[key].length / Number(key);
+    for (let i = 0; i < amountOfGroups; i++) {
+      results.push(groupSizeIndexes[key].splice(0, Number(key)));
+    }
   }
 
-  console.log(groupSizeIndexes);
+  return results;
 }
 
 console.log(groupThePeople([3, 3, 3, 3, 3, 1, 3]));
